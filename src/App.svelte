@@ -7,14 +7,20 @@
 		const res = await fetch("https://pomber.github.io/covid19/timeseries.json");
 		const json = await res.json();
 		const norgeData = json["Norway"]
+		const sverigeData = json["Sweden"]
 
 		// Starter med første registrerte smitte
 		const norge = norgeData.filter(land => land.confirmed > 0)
+		const sverige = norgeData.filter(land => land.confirmed > 0)
 		
 
 		const dates = norge.map(land => land.date)
+
 		const confirmed = norge.map(land => land.confirmed)
 		const deaths = norge.map(land => land.deaths)
+		
+		const sconfirmed = sverige.map(land => land.confirmed)
+		const sdeaths = sverige.map(land => land.deaths)
 
 		console.log(norge);
 
@@ -26,16 +32,16 @@
 			labels: dates,
 			datasets: [
 			{
-				label: "Smittede",
+				label: "Norge",
 				backgroundColor: "rgb(255, 99, 132)",
 				borderColor: "rgb(120, 99, 132)",
 				data: confirmed
 			},
 			{
-				label: "Døde",
+				label: "Sverige",
 				backgroundColor: "orange)",
 				borderColor: "rgb(120, 99, 132)",
-				data: deaths
+				data: sconfirmed
 			}
 			]
 		},

@@ -11,7 +11,7 @@
 
 		// Starter med første registrerte smitte
 		const norge = norgeData.filter(land => land.confirmed > 0)
-		const sverige = norgeData.filter(land => land.confirmed > 0)
+		const sverige = sverigeData.filter(land => land.confirmed > 0)
 		
 
 		const dates = norge.map(land => land.date)

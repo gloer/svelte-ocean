@@ -2,7 +2,14 @@
 	import { onMount } from "svelte";
 	import Chart from "chart.js";
 	
-	function renderChart() {
+	async function renderChart() {
+
+		const res = await fetch("https://pomber.github.io/covid19/timeseries.json");
+		const json = await res.json();
+
+		console.log(json);
+
+
 		var ctx = document.getElementById("myChart").getContext("2d");
 		var chart = new Chart(ctx, {
 		type: "line",

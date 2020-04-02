@@ -8,6 +8,9 @@
 		const json = await res.json();
 		const norge = json["Norway"]
 
+		const dates = norge.map(land => land.date)
+		const confirmed = norge.map(land => land.confirmed)
+
 		console.log(norge);
 
 
@@ -15,13 +18,13 @@
 		var chart = new Chart(ctx, {
 		type: "line",
 		data: {
-			labels: ["January", "February", "March", "April", "May", "June", "July"],
+			labels: dates,
 			datasets: [
 			{
-				label: "My First dataset",
+				label: "Smittede",
 				backgroundColor: "rgb(255, 99, 132)",
 				borderColor: "rgb(255, 99, 132)",
-				data: [0, 10, 5, 2, 20, 30, 45]
+				data: confirmed
 			}
 			]
 		},

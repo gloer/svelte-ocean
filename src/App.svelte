@@ -6,8 +6,9 @@
 
 		const res = await fetch("https://pomber.github.io/covid19/timeseries.json");
 		const json = await res.json();
+		const norge = json["Norway"]
 
-		console.log(json);
+		console.log(norge);
 
 
 		var ctx = document.getElementById("myChart").getContext("2d");

@@ -14,6 +14,7 @@
 
 		const dates = norge.map(land => land.date)
 		const confirmed = norge.map(land => land.confirmed)
+		const deaths = norge.map(land => land.deaths)
 
 		console.log(norge);
 
@@ -27,8 +28,14 @@
 			{
 				label: "Smittede",
 				backgroundColor: "rgb(255, 99, 132)",
-				borderColor: "rgb(255, 99, 132)",
+				borderColor: "rgb(120, 99, 132)",
 				data: confirmed
+			},
+			{
+				label: "Døde",
+				backgroundColor: "orange)",
+				borderColor: "rgb(120, 99, 132)",
+				data: deaths
 			}
 			]
 		},

@@ -6,7 +6,11 @@
 
 		const res = await fetch("https://pomber.github.io/covid19/timeseries.json");
 		const json = await res.json();
-		const norge = json["Norway"]
+		const norgeData = json["Norway"]
+
+		// Starter med første registrerte smitte
+		const norge = norgeData.filter(land => land.confirmed > 0)
+		
 
 		const dates = norge.map(land => land.date)
 		const confirmed = norge.map(land => land.confirmed)
